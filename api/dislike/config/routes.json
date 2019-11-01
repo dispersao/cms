@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dislikes",
+      "handler": "Dislike.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dislikes/count",
+      "handler": "Dislike.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dislikes/:id",
+      "handler": "Dislike.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dislikes",
+      "handler": "Dislike.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dislikes/:id",
+      "handler": "Dislike.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dislikes/:id",
+      "handler": "Dislike.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

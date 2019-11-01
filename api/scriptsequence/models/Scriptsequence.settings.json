@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "scriptsequences",
+  "info": {
+    "name": "scriptsequence",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "index": {
+      "type": "integer"
+    },
+    "script": {
+      "model": "script",
+      "via": "scriptsequences"
+    },
+    "sequence": {
+      "model": "sequence",
+      "via": "scriptsequences"
+    }
+  }
+}

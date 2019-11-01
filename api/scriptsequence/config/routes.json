@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/scriptsequences",
+      "handler": "Scriptsequence.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/scriptsequences/count",
+      "handler": "Scriptsequence.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/scriptsequences/:id",
+      "handler": "Scriptsequence.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/scriptsequences",
+      "handler": "Scriptsequence.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/scriptsequences/:id",
+      "handler": "Scriptsequence.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/scriptsequences/:id",
+      "handler": "Scriptsequence.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

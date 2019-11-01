@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "dislikes",
+  "info": {
+    "name": "dislike",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "author": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "post": {
+      "model": "post",
+      "via": "dislikes"
+    },
+    "contentcreator": {
+      "model": "contentcreator",
+      "via": "dislikes"
+    },
+    "profile": {
+      "model": "profile",
+      "via": "dislikes"
+    }
+  }
+}

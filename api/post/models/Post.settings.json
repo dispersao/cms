@@ -1,0 +1,47 @@
+{
+  "connection": "default",
+  "collectionName": "posts",
+  "info": {
+    "name": "post",
+    "description": "Posts"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "post"
+    },
+    "categories": {
+      "collection": "category",
+      "via": "posts",
+      "dominant": true
+    },
+    "likes": {
+      "collection": "like",
+      "via": "post"
+    },
+    "dislikes": {
+      "collection": "dislike",
+      "via": "post"
+    },
+    "contentcreator": {
+      "model": "contentcreator",
+      "via": "posts"
+    }
+  }
+}

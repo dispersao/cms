@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "comments",
+  "info": {
+    "name": "comment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "author": {
+      "model": "character",
+      "via": "comments"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "post": {
+      "model": "post",
+      "via": "comments"
+    }
+  }
+}

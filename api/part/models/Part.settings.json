@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "parts",
+  "info": {
+    "name": "part",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "extra": {
+      "type": "string"
+    },
+    "index": {
+      "type": "integer"
+    },
+    "sequence": {
+      "model": "sequence",
+      "via": "parts"
+    },
+    "characters": {
+      "collection": "character",
+      "via": "parts",
+      "dominant": true
+    },
+    "type": {
+      "enum": [
+        "action",
+        "dialogue",
+        "observation"
+      ],
+      "type": "enumeration"
+    }
+  }
+}
