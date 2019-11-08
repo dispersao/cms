@@ -1,5 +1,5 @@
 'use strict';
-const { sanitizeEntity } = require('strapi-utils');
+const { sanitizeEntity } = require('strapi-utils')
 
 /**
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
@@ -15,7 +15,6 @@ module.exports = {
        return strapi.services.part.create(part)
       })
     )
-    console.log(parts)
     let seqData = {
       ...ctx.request.body,
       parts

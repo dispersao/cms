@@ -7,22 +7,31 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
     "name": {
       "type": "string"
     },
+    "averagetime": {
+      "type": "integer"
+    },
     "author": {
       "model": "user",
       "via": "scripts",
       "plugin": "users-permissions"
     },
-    "lastEditor": {
-      "model": "user",
-      "via": "scripts",
-      "plugin": "users-permissions"
+    "speed": {
+      "enum": [
+        "normal",
+        "ff",
+        "sff"
+      ],
+      "type": "enumeration"
     },
     "scriptsequences": {
       "collection": "scriptsequence",

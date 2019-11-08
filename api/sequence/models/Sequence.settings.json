@@ -25,10 +25,6 @@
       "model": "type",
       "via": "sequences"
     },
-    "scriptsequences": {
-      "collection": "scriptsequence",
-      "via": "sequence"
-    },
     "categories": {
       "collection": "category",
       "dominant": true,
@@ -36,6 +32,10 @@
     },
     "parts": {
       "collection": "part",
+      "via": "sequence"
+    },
+    "scriptsequences": {
+      "collection": "scriptsequence",
       "via": "sequence"
     }
   }

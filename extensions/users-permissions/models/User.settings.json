@@ -56,12 +56,12 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "scripts": {
-      "collection": "script",
-      "via": "lastEditor"
-    },
     "likes": {
       "collection": "like",
+      "via": "author"
+    },
+    "scripts": {
+      "collection": "script",
       "via": "author"
     }
   }

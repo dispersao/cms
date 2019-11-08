@@ -7,19 +7,30 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
     "index": {
       "type": "integer"
     },
-    "script": {
-      "model": "script",
-      "via": "scriptsequences"
-    },
     "sequence": {
       "model": "sequence",
+      "via": "scriptsequences"
+    },
+    "state": {
+      "enum": [
+        "hasPlayed",
+        "isPlaying",
+        "willPlay"
+      ],
+      "type": "enumeration"
+    },
+    "script": {
+      "model": "script",
       "via": "scriptsequences"
     }
   }
