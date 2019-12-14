@@ -29,14 +29,14 @@ module.exports = {
     if (ctx.query._q) {
       entities = await strapi.services.sequence.search(ctx.query);
     } else {
-      entities = await strapi.services.sequence.find(ctx.query, ['location', 'type', 'category', 'parts.characters']);
+      entities = await strapi.services.sequence.find(ctx.query, ['location', 'type', 'categories', 'parts.characters']);
     }
     const model = strapi.models.sequence
 
     return entities.map(entity => sanitizeEntity(entity, { model }));
   },
   async findOne(ctx) {
-    const entity = await strapi.services.sequence.findOne(ctx.params, ['location', 'type', 'category', 'parts.characters']);
+    const entity = await strapi.services.sequence.findOne(ctx.params, ['location', 'type', 'categories', 'parts.characters']);
     const model = strapi.models.sequence
     return sanitizeEntity(entity, { model });
   }
