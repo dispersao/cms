@@ -11,7 +11,9 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "keygenerator": "^1.0.4",
     "knex": "latest",
+    "lodash": "^4.17.15",
     "mysql": "latest",
     "strapi": "3.0.0-beta.17.2",
     "strapi-admin": "3.0.0-beta.17.2",

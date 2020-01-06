@@ -36,6 +36,21 @@
     "scriptsequences": {
       "collection": "scriptsequence",
       "via": "script"
+    },
+    "token": {
+      "type": "string",
+      "unique": true
+    },
+    "state": {
+      "enum": [
+        "idle",
+        "started",
+        "playing",
+        "paused",
+        "finished"
+      ],
+      "type": "enumeration",
+      "required": true
     }
   }
 }
