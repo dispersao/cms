@@ -14,10 +14,6 @@
     "name": {
       "type": "string"
     },
-    "comments": {
-      "collection": "comment",
-      "via": "author"
-    },
     "categories": {
       "collection": "category",
       "via": "characters"
@@ -25,6 +21,10 @@
     "parts": {
       "collection": "part",
       "via": "characters"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "author"
     }
   }
 }

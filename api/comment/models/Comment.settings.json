@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -20,6 +23,10 @@
     },
     "post": {
       "model": "post",
+      "via": "comments"
+    },
+    "contentcreator": {
+      "model": "contentcreator",
       "via": "comments"
     }
   }

@@ -19,16 +19,16 @@
       "via": "likes",
       "plugin": "users-permissions"
     },
-    "post": {
-      "model": "post",
-      "via": "likes"
-    },
     "contentcreator": {
       "model": "contentcreator",
       "via": "likes"
     },
     "profile": {
       "model": "profile",
+      "via": "likes"
+    },
+    "sessionpublication": {
+      "model": "sessionpublication",
       "via": "likes"
     }
   }

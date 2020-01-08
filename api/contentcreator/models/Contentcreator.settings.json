@@ -17,10 +17,6 @@
     "name": {
       "type": "string"
     },
-    "posts": {
-      "collection": "post",
-      "via": "contentcreator"
-    },
     "character": {
       "model": "character"
     },
@@ -35,6 +31,14 @@
     },
     "dislikes": {
       "collection": "dislike",
+      "via": "contentcreator"
+    },
+    "posts": {
+      "collection": "post",
+      "via": "contentcreator"
+    },
+    "comments": {
+      "collection": "comment",
       "via": "contentcreator"
     }
   }

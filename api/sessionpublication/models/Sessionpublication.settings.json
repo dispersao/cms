@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "sessionpublications",
+  "info": {
+    "name": "sessionpublication",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "script": {
+      "model": "script",
+      "via": "sessionpublications"
+    },
+    "likes": {
+      "collection": "like",
+      "via": "sessionpublication"
+    },
+    "dislikes": {
+      "collection": "dislike",
+      "via": "sessionpublication"
+    },
+    "post": {
+      "model": "post",
+      "via": "sessionpublications"
+    }
+  }
+}

@@ -22,26 +22,22 @@
       "via": "related",
       "plugin": "upload"
     },
-    "comments": {
-      "collection": "comment",
-      "via": "post"
-    },
     "categories": {
       "collection": "category",
       "via": "posts",
       "dominant": true
     },
-    "likes": {
-      "collection": "like",
-      "via": "post"
-    },
-    "dislikes": {
-      "collection": "dislike",
-      "via": "post"
-    },
     "contentcreator": {
       "model": "contentcreator",
       "via": "posts"
+    },
+    "sessionpublications": {
+      "collection": "sessionpublication",
+      "via": "post"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "post"
     }
   }
 }
