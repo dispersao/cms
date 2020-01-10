@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Sessionpublication` model.
+ * Lifecycle callbacks for the `Sessioncontent` model.
  */
 
 module.exports = {

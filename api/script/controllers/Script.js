@@ -35,9 +35,9 @@ module.exports = {
   },
 
   async update (ctx) {
-    let entity
+    let entity = await strapi.services.script.findOne(ctx.params)
     if(ctx.request.body.scriptsequences) {
-      entity = await strapi.services.script.findOne(ctx.params)
+
       const scrToDelete = entity.scriptsequences.filter(scrseq => {
         return !ctx.request.body.scriptsequences.includes(scrseq.id)
       })
@@ -45,6 +45,17 @@ module.exports = {
         return strapi.services.scriptsequence.delete({id: scrseq.id})
       }))
     }
+
+    if(ctx.request.body.sessioncontents) {
+      console.log(entity)
+      const sscoToDelete = entity.sessioncontents.filter(sescon => {
+        return !ctx.request.body.sessioncontents.includes(sescon.id)
+      })
+      await Promise.all(sscoToDelete.map(sescon => {
+        return strapi.services.sessioncontent.delete({id: sescon.id})
+      }))
+    }
+
     entity = await strapi.services.script.update(
       ctx.params,
       ctx.request.body

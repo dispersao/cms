@@ -1,0 +1,48 @@
+{
+  "connection": "default",
+  "collectionName": "sessionpublications",
+  "info": {
+    "name": "sessioncontent",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "likes": {
+      "collection": "like",
+      "via": "sessionpublication"
+    },
+    "dislikes": {
+      "collection": "dislike",
+      "via": "sessionpublication"
+    },
+    "state": {
+      "enum": [
+        "pending",
+        "published"
+      ],
+      "type": "enumeration"
+    },
+    "programmed_at": {
+      "type": "integer"
+    },
+    "script": {
+      "model": "script",
+      "via": "sessioncontents"
+    },
+    "post": {
+      "model": "post",
+      "via": "sessioncontents"
+    },
+    "comment": {
+      "model": "comment",
+      "via": "sessioncontents"
+    }
+  }
+}

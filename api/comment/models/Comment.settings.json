@@ -28,6 +28,10 @@
     "contentcreator": {
       "model": "contentcreator",
       "via": "comments"
+    },
+    "sessioncontents": {
+      "collection": "sessioncontent",
+      "via": "comment"
     }
   }
 }

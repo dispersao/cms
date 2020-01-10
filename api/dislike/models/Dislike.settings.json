@@ -27,7 +27,7 @@
       "via": "dislikes"
     },
     "sessionpublication": {
-      "model": "sessionpublication",
+      "model": "sessioncontent",
       "via": "dislikes"
     }
   }

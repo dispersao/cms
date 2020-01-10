@@ -25,10 +25,6 @@
       "via": "scripts",
       "plugin": "users-permissions"
     },
-    "scriptsequences": {
-      "collection": "scriptsequence",
-      "via": "script"
-    },
     "token": {
       "type": "string",
       "unique": true
@@ -44,8 +40,12 @@
       "type": "enumeration",
       "required": true
     },
-    "sessionpublications": {
-      "collection": "sessionpublication",
+    "sessioncontents": {
+      "collection": "sessioncontent",
+      "via": "script"
+    },
+    "scriptsequences": {
+      "collection": "scriptsequence",
       "via": "script"
     }
   }

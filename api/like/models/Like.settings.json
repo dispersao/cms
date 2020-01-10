@@ -28,7 +28,7 @@
       "via": "likes"
     },
     "sessionpublication": {
-      "model": "sessionpublication",
+      "model": "sessioncontent",
       "via": "likes"
     }
   }

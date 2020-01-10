@@ -31,12 +31,12 @@
       "model": "contentcreator",
       "via": "posts"
     },
-    "sessionpublications": {
-      "collection": "sessionpublication",
-      "via": "post"
-    },
     "comments": {
       "collection": "comment",
+      "via": "post"
+    },
+    "sessioncontents": {
+      "collection": "sessioncontent",
       "via": "post"
     }
   }
