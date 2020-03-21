@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "appusers",
+  "info": {
+    "name": "appuser",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "expotoken": {
+      "type": "string"
+    },
+    "script": {
+      "model": "script"
+    }
+  }
+}
