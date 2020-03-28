@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "expo-server-sdk": "^3.4.0",
     "keygenerator": "^1.0.4",
     "knex": "latest",
     "lodash": "^4.17.15",
