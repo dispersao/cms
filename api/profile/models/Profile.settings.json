@@ -32,6 +32,10 @@
     },
     "contentcreator": {
       "model": "contentcreator"
+    },
+    "sessioncontents": {
+      "collection": "sessioncontent",
+      "via": "profile"
     }
   }
 }

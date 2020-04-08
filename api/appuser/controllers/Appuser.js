@@ -33,9 +33,9 @@ module.exports = {
     if(ctx.request.body.script) {
       let script = await strapi.services.script.findOne({token: ctx.request.body.script})
       if (!script) {
-        return ctx.badRequest('Invalid session token.')
+        return ctx.badRequest('invalidToken')
       } else if(script.state === 'idle' || script.state === 'finished') {
-        return ctx.badRequest('This session is not available.')
+        return ctx.badRequest('invalidState')
       } else {
         reqBody = {
           ...reqBody,

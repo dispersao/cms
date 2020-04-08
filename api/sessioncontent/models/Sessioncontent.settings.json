@@ -43,6 +43,10 @@
     "comment": {
       "model": "comment",
       "via": "sessioncontents"
+    },
+    "profile": {
+      "model": "profile",
+      "via": "sessioncontents"
     }
   }
 }

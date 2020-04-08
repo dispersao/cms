@@ -11,7 +11,10 @@ module.exports = {
     const user = sanitizeEntity(appuser, { model: strapi.models.appuser })
 
     let script = user.script
-    script = script ? { state: script.state } : script
+    script = script ? { 
+      state: script.state,
+      token: script.token
+    } : script
 
     return {
       ...user,

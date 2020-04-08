@@ -22,12 +22,12 @@
       "model": "contentcreator",
       "via": "dislikes"
     },
-    "profile": {
-      "model": "profile",
-      "via": "dislikes"
-    },
     "sessionpublication": {
       "model": "sessioncontent",
+      "via": "dislikes"
+    },
+    "profile": {
+      "model": "profile",
       "via": "dislikes"
     }
   }

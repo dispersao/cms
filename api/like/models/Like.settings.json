@@ -23,12 +23,12 @@
       "model": "contentcreator",
       "via": "likes"
     },
-    "profile": {
-      "model": "profile",
-      "via": "likes"
-    },
     "sessionpublication": {
       "model": "sessioncontent",
+      "via": "likes"
+    },
+    "profile": {
+      "model": "profile",
       "via": "likes"
     }
   }

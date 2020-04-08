@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/scripts/count/enabled",
+      "handler": "script.enabled",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/scripts/:id",
       "handler": "Script.findOne",
       "config": {
@@ -36,6 +44,14 @@
       "method": "PUT",
       "path": "/scripts/:id",
       "handler": "Script.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/scripts/:id/state",
+      "handler": "Script.stateUpdate",
       "config": {
         "policies": []
       }
