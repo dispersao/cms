@@ -56,10 +56,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "likes": {
-      "collection": "like",
-      "via": "author"
-    },
     "scripts": {
       "collection": "script",
       "via": "author"

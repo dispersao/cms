@@ -14,22 +14,15 @@
     "comment": ""
   },
   "attributes": {
-    "author": {
-      "model": "user",
-      "via": "likes",
-      "plugin": "users-permissions"
-    },
-    "contentcreator": {
-      "model": "contentcreator",
-      "via": "likes"
-    },
-    "sessionpublication": {
+    "sessioncontent": {
       "model": "sessioncontent",
       "via": "likes"
     },
-    "profile": {
-      "model": "profile",
-      "via": "likes"
+    "appuser": {
+      "model": "appuser"
+    },
+    "dislike": {
+      "type": "boolean"
     }
   }
 }

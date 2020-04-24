@@ -17,14 +17,6 @@
     "content": {
       "type": "text"
     },
-    "likes": {
-      "collection": "like",
-      "via": "profile"
-    },
-    "dislikes": {
-      "collection": "dislike",
-      "via": "profile"
-    },
     "photo": {
       "model": "file",
       "via": "related",

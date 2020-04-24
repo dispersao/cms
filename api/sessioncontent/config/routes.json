@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/sessioncontents/posts_and_comments",
+      "handler": "Sessioncontent.findPostsAndComments",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/sessioncontents/count",
       "handler": "Sessioncontent.count",
       "config": {

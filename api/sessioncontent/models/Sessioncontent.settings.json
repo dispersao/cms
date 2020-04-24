@@ -14,14 +14,6 @@
     "comment": ""
   },
   "attributes": {
-    "likes": {
-      "collection": "like",
-      "via": "sessionpublication"
-    },
-    "dislikes": {
-      "collection": "dislike",
-      "via": "sessionpublication"
-    },
     "state": {
       "enum": [
         "pending",
@@ -47,6 +39,10 @@
     "profile": {
       "model": "profile",
       "via": "sessioncontents"
+    },
+    "likes": {
+      "collection": "like",
+      "via": "sessioncontent"
     }
   }
 }

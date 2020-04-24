@@ -13,5 +13,37 @@ module.exports = {
     } else { 
       return strapi.services.sessioncontent.create(ctx.request.body)
     }
+  },
+  async find(ctx) {
+    let entities;
+    const fields =  [
+      'post', 
+      'post.contentcreator',
+      'post.contentcreator.icon',
+      'comment', 
+      'comment.contentcreator',
+      'comment.contentcreator.icon',
+      'profile', 
+      'profile.contentcreator',
+      'profile.contentcreator.icon',
+      'likes'
+    ]
+
+    if (ctx.query._q) {
+      entities = await strapi.services.sessioncontent.search(ctx.query, fields);
+    } else {
+      entities = await strapi.services.sessioncontent.find(ctx.query, fields);
+    }
+    const model = strapi.models.sessioncontent
+
+    return entities.map(entity => sanitizeEntity(entity, { model }));
+  },
+
+  async findPostsAndComments (ctx) {
+    const a = await strapi.query('sessioncontent').model.query(qb => {
+      qb.where('post', 'IS NOT NULL').orWhere('comment', 'IS NOT NULL')
+    })
+    .fetch()
+    console.log(a, ctx.query)
   }
 };

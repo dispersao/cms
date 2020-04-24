@@ -25,14 +25,6 @@
       "via": "related",
       "plugin": "upload"
     },
-    "likes": {
-      "collection": "like",
-      "via": "contentcreator"
-    },
-    "dislikes": {
-      "collection": "dislike",
-      "via": "contentcreator"
-    },
     "posts": {
       "collection": "post",
       "via": "contentcreator"
