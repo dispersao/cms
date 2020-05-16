@@ -28,6 +28,9 @@
     "sessioncontents": {
       "collection": "sessioncontent",
       "via": "profile"
+    },
+    "description": {
+      "type": "string"
     }
   }
 }

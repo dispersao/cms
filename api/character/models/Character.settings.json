@@ -21,10 +21,6 @@
     "parts": {
       "collection": "part",
       "via": "characters"
-    },
-    "comments": {
-      "collection": "comment",
-      "via": "author"
     }
   }
 }

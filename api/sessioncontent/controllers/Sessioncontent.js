@@ -26,6 +26,7 @@ module.exports = {
       'profile', 
       'profile.contentcreator',
       'profile.contentcreator.icon',
+      'profile.photo',
       'likes'
     ]
 
