@@ -6,10 +6,10 @@
       "settings": {
         "client": "mysql",
         "database": "dispersao_sequences",
-        "host": "127.0.0.1",
+        "host": "${process.env.database_host || '127.0.0.1'}",
         "port": 3306,
-        "username": "root",
-        "password": "password"
+        "username": "dispersao_user",
+        "password": "${process.env.mysql_dispersao_password}"
       },
       "options": {}
     }
