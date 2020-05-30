@@ -20,6 +20,7 @@ module.exports = {
       'post', 
       'post.contentcreator',
       'post.contentcreator.icon',
+      'post.media',
       'comment', 
       'comment.contentcreator',
       'comment.contentcreator.icon',
