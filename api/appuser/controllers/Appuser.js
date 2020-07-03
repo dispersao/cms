@@ -25,7 +25,7 @@ module.exports = {
 
   async findOne(ctx) {
     let entity = await strapi.services.appuser.findOne(ctx.params);
-    return strapi.services.appuser.formatAppuser(entity)
+    return (entity && strapi.services.appuser.formatAppuser(entity)) || entity
   },
 
   async update(ctx) {
