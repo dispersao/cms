@@ -28,10 +28,6 @@
       "model": "script",
       "via": "sessioncontents"
     },
-    "post": {
-      "model": "post",
-      "via": "sessioncontents"
-    },
     "likes": {
       "collection": "like",
       "via": "sessioncontent"
@@ -42,6 +38,10 @@
     },
     "profile": {
       "model": "profile",
+      "via": "sessioncontents"
+    },
+    "post": {
+      "model": "post",
       "via": "sessioncontents"
     }
   }

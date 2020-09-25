@@ -25,12 +25,12 @@
       "via": "related",
       "plugin": "upload"
     },
-    "posts": {
-      "collection": "post",
-      "via": "contentcreator"
-    },
     "comments": {
       "collection": "comment",
+      "via": "contentcreator"
+    },
+    "posts": {
+      "collection": "post",
       "via": "contentcreator"
     }
   }

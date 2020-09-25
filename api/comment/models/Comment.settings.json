@@ -17,10 +17,6 @@
     "content": {
       "type": "richtext"
     },
-    "post": {
-      "model": "post",
-      "via": "comments"
-    },
     "contentcreator": {
       "model": "contentcreator",
       "via": "comments"
@@ -28,6 +24,10 @@
     "sessioncontents": {
       "collection": "sessioncontent",
       "via": "comment"
+    },
+    "post": {
+      "model": "post",
+      "via": "comments"
     }
   }
 }

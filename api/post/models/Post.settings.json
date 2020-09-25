@@ -38,6 +38,11 @@
     "comments": {
       "collection": "comment",
       "via": "post"
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }
