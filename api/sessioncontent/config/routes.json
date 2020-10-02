@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/sessioncontents/:id/state",
+      "handler": "Sessioncontent.stateUpdate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/sessioncontents/:id",
       "handler": "Sessioncontent.delete",
