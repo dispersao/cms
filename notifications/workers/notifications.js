@@ -1,4 +1,6 @@
 const { Expo } = require('expo-server-sdk')
+const escapeStringRegexp = require('escape-string-regexp')
+ 
 let expo = new Expo()
 
 module.exports = async (job, done) => {
@@ -11,26 +13,41 @@ module.exports = async (job, done) => {
       return expo.sendPushNotificationsAsync(chunk)
     }))
 
-    const receiptIds = []
+    const receiptList = []
     const errors = []
+    const userPromises = []
 
-    tickets.flat().forEach(ticket => {
-      const { status, details, message } = ticket
-      if(status === 'ok') {
-        receiptIds.push(ticket.id)
-      } else if(status === 'error') {
-        errors.push(message)
-      }
+    tickets.forEach((ticketList, index) => {
+      const correspondingChunk = chunks[index]
+      ticketList.forEach(ticket => {
+        const { status, details, message } = ticket
+        if(status === 'ok') {
+          receiptList.push({
+            chunkIndex: index,
+            id: ticket.id})
+        } else if(status === 'error'){
+          if(details.error === 'DeviceNotRegistered') {
+            const pushMessage = correspondingChunk.find(chunk => {
+              return new RegExp(escapeStringRegexp(chunk.to)).test(message)
+            })
+            if(pushMessage){
+              userPromises.push(strapi.query('appuser').update(
+                { expotoken: pushMessage.to },
+                { enabled: false }
+              ))
+            }
+          }
+          errors.push(message)
+        }
+      })
     })
 
-    console.log('sent PNs')
-    console.log(receiptIds)
-    console.log('failed')
-    console.log(errors)
+    await Promise.all(userPromises)
 
     receipts.add({
       contentId,
-      receiptIds
+      chunks,
+      tickets: receiptList
     })
     
     const sentError = errors.length ? errors : null;

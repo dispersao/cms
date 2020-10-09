@@ -4,24 +4,6 @@ const { Expo } = require('expo-server-sdk')
 
 const { notifications } = require('../../../notifications/queues');
 
-
-// const { redis } = require('../../../config/environments/')
-
-// const redis = require("redis")
-// const client = redis.createClient({
-//     host: process.env.redis_host,
-//     no_ready_check: true,
-//     auth_pass: process.env.redis_password,
-// })
- 
-// client.on('connect', () => {   
-//   console.log("connected");
-// });                               
-      
-// client.on('error', (error) => {   
-//   console.log(error.message);
-// });  
-
 /**
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
  * to customize this controller
@@ -97,11 +79,15 @@ module.exports = {
 };
 
 const sendMessages = async (entity) => {
-  let expo = new Expo()
-
   const appusers = await strapi.services.appuser.find({
-    script:entity.script
+    script: entity.script,
+    enabled: true,
+    expotoken_null: false
   })
+
+  if(!appusers){
+    return
+  }
 
   const messages = appusers.map(appuser => {
     if (Expo.isExpoPushToken(appuser.expotoken)) {
@@ -117,6 +103,7 @@ const sendMessages = async (entity) => {
     }
   })
   .filter(Boolean);
+  console.log('messages', messages)
 
   notifications.add({
     contentId: entity.id,
