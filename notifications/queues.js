@@ -6,10 +6,10 @@ const {
 const Queue = require('bull')
 
 const redis = {
-  port: process.env.redis_port || 6379,
-  host: process.env.redis_host || '127.0.0.1',
+  port: process.env.REDIS_PORT || 6379,
+  host: process.env.REDIS_HOST || '127.0.0.1',
   db: process.env.redis_db || 0,
-  password: process.env.redis_password
+  password: process.env.REDIS_PASSWORD
 }
 
 const notifications = new Queue('notification-send', { redis })
