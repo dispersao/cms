@@ -1,6 +1,7 @@
 'use strict';
 const { sanitizeEntity } = require('strapi-utils')
 const { Expo } = require('expo-server-sdk')
+const { getTranslationByLang } = require('../../../locales/')
 
 const { notifications } = require('../../../notifications/queues');
 
@@ -94,8 +95,8 @@ const sendMessages = async (entity) => {
       return {
         to: appuser.expotoken,
         sound: 'default',
-        title: `${entity.post.contentcreator.name} published`,
-        body: `${entity.post.content}`,
+        title: `${entity.post.contentcreator.name}`,
+        body: getTranslationByLang(appuser.locale, 'notification.post', {}),
         data: { 
           post: entity.id 
         },

@@ -4,18 +4,16 @@
     "default": {
       "connector": "strapi-hook-bookshelf",
       "settings": {
+        "charset": "utf8mb4_unicode_ci",
         "client": "mysql",
-        "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
-        "port": "${process.env.DATABASE_PORT || 27017}",
-        "srv": "${process.env.DATABASE_SRV || false}",
-        "database": "${process.env.DATABASE_NAME || 'strapi'}",
-        "username": "${process.env.DATABASE_USERNAME || ''}",
-        "password": "${process.env.DATABASE_PASSWORD || ''}",
-        "ssl": "${process.env.DATABASE_SSL || false}"
+        "database": "dispersao_sequences",
+        "host": "${process.env.database_host || '127.0.0.1'}",
+        "port": 3306,
+        "username": "dispersao_user",
+        "password": "${process.env.mysql_dispersao_password}"
       },
       "options": {
-        "ssl": "${process.env.DATABASE_SSL || false}",
-        "authenticationDatabase": "${process.env.DATABASE_AUTHENTICATION_DATABASE || ''}"
+        "charset": "utf8mb4_unicode_ci"
       }
     }
   }
