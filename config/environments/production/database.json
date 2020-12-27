@@ -4,18 +4,19 @@
     "default": {
       "connector": "strapi-hook-bookshelf",
       "settings": {
+        "charset": "utf8mb4_unicode_ci",
         "client": "mysql",
-        "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
-        "port": "${process.env.DATABASE_PORT || 27017}",
+        "database": "dispersao_sequences",
+        "host": "${process.env.database_host || '127.0.0.1'}",
+        "port": "${process.env.mysql_port}",
         "srv": "${process.env.DATABASE_SRV || false}",
-        "database": "${process.env.DATABASE_NAME || 'strapi'}",
-        "username": "${process.env.DATABASE_USERNAME || ''}",
-        "password": "${process.env.DATABASE_PASSWORD || ''}",
-        "ssl": "${process.env.DATABASE_SSL || false}"
+        "username": "${process.env.mysql_dispersao_user || 'user'}",
+        "password": "${process.env.mysql_dispersao_password}",
+        "ssl": "${process.env.database_ssl || false}"
       },
       "options": {
-        "ssl": "${process.env.DATABASE_SSL || false}",
-        "authenticationDatabase": "${process.env.DATABASE_AUTHENTICATION_DATABASE || ''}"
+        "ssl": "${process.env.database_ssl || false}",
+        "authenticationDatabase": "${process.env.authentication_database || ''}"
       }
     }
   }

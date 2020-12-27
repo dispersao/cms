@@ -7,7 +7,10 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
     "comment": ""
   },
   "attributes": {
@@ -16,6 +19,14 @@
     },
     "script": {
       "model": "script"
+    },
+    "enabled": {
+      "default": true,
+      "type": "boolean"
+    },
+    "locale": {
+      "type": "string",
+      "default": "en"
     }
   }
 }

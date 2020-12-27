@@ -18,11 +18,11 @@
       "model": "sessioncontent",
       "via": "likes"
     },
-    "appuser": {
-      "model": "appuser"
-    },
     "dislike": {
       "type": "boolean"
+    },
+    "appuser": {
+      "model": "appuser"
     }
   }
 }

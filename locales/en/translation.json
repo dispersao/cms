@@ -1,0 +1,6 @@
+{
+  "notification": {
+    "post": "just published something.",
+    "comment": "just commented something."
+  }
+}
