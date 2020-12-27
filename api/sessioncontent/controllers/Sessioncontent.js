@@ -57,11 +57,12 @@ module.exports = {
     }
     let entity = await strapi.services.sessioncontent.findOne(ctx.params, [
       'post', 
-      'post.content',
-      'post.contentcreator'
+      'post.contentcreator',
+      'comment',
+      'comment.contentcreator'
     ])
 
-    if(entity.state === states[0] && ctx.request.body.state === states[1] && entity.post) {
+    if(/*entity.state === states[0] &&*/ ctx.request.body.state === states[1] && (entity.post || entity.comment)) {
       sendMessages(entity)
     }
 
@@ -90,16 +91,19 @@ const sendMessages = async (entity) => {
     return
   }
 
+  const type = entity.post ? 'post' : 'comment'
+
   const messages = appusers.map(appuser => {
     if (Expo.isExpoPushToken(appuser.expotoken)) {
       return {
         to: appuser.expotoken,
         sound: 'default',
-        title: `${entity.post.contentcreator.name}`,
-        body: getTranslationByLang(appuser.locale, 'notification.post', {}),
+        title: `${entity[type].contentcreator.name}`,
+        body: getTranslationByLang(appuser.locale, `notification.${type}`, {}),
         data: { 
-          post: entity.id 
-        },
+          sessioncontent: entity.id,
+          type
+        }
       }
     }
   })
