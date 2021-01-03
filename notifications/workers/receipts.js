@@ -39,6 +39,8 @@ module.exports = async (job, done) => {
             }
           }
           errors.push(message)
+        } else {
+          console.log('different status', key, value)
         }
       })
     })
