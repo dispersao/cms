@@ -42,6 +42,9 @@ module.exports = async (job, done) => {
       })
     })
 
+    console.log('notification Errors', errors)
+    console.log('tickets', tickets)
+
     await Promise.all(userPromises)
 
     receipts.add({
