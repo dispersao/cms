@@ -98,6 +98,8 @@ const sendMessages = async (entity) => {
       return {
         to: appuser.expotoken,
         sound: 'default',
+        priority: 'high',
+        channelId: 'dispersao-posts',
         title: `${entity[type].contentcreator.name}`,
         body: getTranslationByLang(appuser.locale, `notification.${type}`, {}),
         data: { 
