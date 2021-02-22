@@ -58,8 +58,11 @@ module.exports = {
     let entity = await strapi.services.sessioncontent.findOne(ctx.params, [
       'post', 
       'post.contentcreator',
+      'post.contentcreator.icon',
       'comment',
-      'comment.contentcreator'
+      'comment.contentcreator',
+      'comment.contentcreator.icon',
+      'comment.post.contentcreator'
     ])
 
     if(/*entity.state === states[0] &&*/ ctx.request.body.state === states[1] && (entity.post || entity.comment)) {
@@ -92,17 +95,25 @@ const sendMessages = async (entity) => {
   }
 
   const type = entity.post ? 'post' : 'comment'
+  const refName = entity.comment ? entity.comment.post.contentcreator.name : ''
 
   const messages = appusers.map(appuser => {
     if (Expo.isExpoPushToken(appuser.expotoken)) {
+      
       return {
         to: appuser.expotoken,
         sound: 'default',
+        priority: 'high',
+        channelId: 'dispersao-posts',
         title: `${entity[type].contentcreator.name}`,
-        body: getTranslationByLang(appuser.locale, `notification.${type}`, {}),
+        body: getTranslationByLang(appuser.locale, `notification.${type}`, {name: refName}),
         data: { 
           sessioncontent: entity.id,
-          type
+          type,
+          thumb: entity[type].contentcreator.icon.url,
+          author: entity[type].contentcreator.name,
+          published_at:entity.updated_at,
+          refName
         }
       }
     }
