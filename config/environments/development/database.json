@@ -11,9 +11,6 @@
         "port": "${process.env.mysql_port}",
         "username": "dispersao_user",
         "password": "${process.env.mysql_dispersao_password}"
-      },
-      "options": {
-        "charset": "utf8mb4_unicode_ci"
       }
     }
   }
