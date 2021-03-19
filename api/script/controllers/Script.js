@@ -72,6 +72,11 @@ module.exports = {
     }
   },
 
+  async getState(ctx) {
+    let entity = await strapi.services.script.findOne({token: ctx.params.token});
+    return entity && entity.state;
+  },
+
   async stateUpdate (ctx) {
     const states = [
       'idle', 
