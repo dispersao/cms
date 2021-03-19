@@ -57,6 +57,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/scripts/:token/state",
+      "handler": "Script.getState",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/scripts/:id",
       "handler": "Script.delete",
