@@ -4,16 +4,14 @@
     "default": {
       "connector": "strapi-hook-bookshelf",
       "settings": {
-        "charset": "utf8mb4_unicode_ci",
+        "charset": "utf8mb4",
         "client": "mysql",
         "database": "dispersao_sequences",
         "host": "${process.env.database_host || '127.0.0.1'}",
         "port": "${process.env.mysql_port}",
         "username": "dispersao_user",
-        "password": "${process.env.mysql_dispersao_password}"
-      },
-      "options": {
-        "charset": "utf8mb4_unicode_ci"
+        "password": "${process.env.mysql_dispersao_password}",
+        "collation": "utf8mb4_unicode_ci"
       }
     }
   }
