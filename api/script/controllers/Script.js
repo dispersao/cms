@@ -73,7 +73,7 @@ module.exports = {
   },
 
   async getState(ctx) {
-    let entity = await strapi.services.script.findOne({token: ctx.params.token});
+    let entity = await strapi.services.script.findOne({token: ctx.params.id});
     return entity && {
       state: entity.state,
       token: entity.token
