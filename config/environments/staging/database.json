@@ -2,18 +2,16 @@
   "defaultConnection": "default",
   "connections": {
     "default": {
-      "connector": "strapi-hook-bookshelf",
+      "connector": "bookshelf",
       "settings": {
-        "charset": "utf8mb4_unicode_ci",
+        "charset": "utf8mb4",
         "client": "mysql",
-        "database": "dispersao_sequences",
+        "database": "${process.env.mysql_dispersao_db||dispersao_sequences}",
         "host": "${process.env.database_host || '127.0.0.1'}",
         "port": "${process.env.mysql_port}",
-        "username": "dispersao_user",
-        "password": "${process.env.mysql_dispersao_password}"
-      },
-      "options": {
-        "charset": "utf8mb4_unicode_ci"
+        "username": "${process.env.mysql_dispersao_user||dispersao_user}",
+        "password": "${process.env.mysql_dispersao_password}",
+        "collation": "utf8mb4_unicode_ci"
       }
     }
   }
