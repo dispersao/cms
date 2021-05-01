@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "movieserver.dispersao.net",
   "port": "${process.env.PORT || 1337}",
   "production": true,
   "proxy": {
