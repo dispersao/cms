@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/characters",
-      "handler": "Character.find",
+      "handler": "character.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/characters/count",
-      "handler": "Character.count",
+      "handler": "character.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/characters/:id",
-      "handler": "Character.findOne",
+      "handler": "character.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/characters",
-      "handler": "Character.create",
+      "handler": "character.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/characters/:id",
-      "handler": "Character.update",
+      "handler": "character.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/characters/:id",
-      "handler": "Character.delete",
+      "handler": "character.delete",
       "config": {
         "policies": []
       }

@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/comments",
-      "handler": "Comment.find",
+      "handler": "comment.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/comments/count",
-      "handler": "Comment.count",
+      "handler": "comment.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/comments/:id",
-      "handler": "Comment.findOne",
+      "handler": "comment.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/comments",
-      "handler": "Comment.create",
+      "handler": "comment.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/comments/:id",
-      "handler": "Comment.update",
+      "handler": "comment.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/comments/:id",
-      "handler": "Comment.delete",
+      "handler": "comment.delete",
       "config": {
         "policies": []
       }

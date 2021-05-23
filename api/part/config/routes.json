@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/parts",
-      "handler": "Part.find",
+      "handler": "part.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/parts/count",
-      "handler": "Part.count",
+      "handler": "part.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/parts/:id",
-      "handler": "Part.findOne",
+      "handler": "part.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/parts",
-      "handler": "Part.create",
+      "handler": "part.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/parts/:id",
-      "handler": "Part.update",
+      "handler": "part.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/parts/:id",
-      "handler": "Part.delete",
+      "handler": "part.delete",
       "config": {
         "policies": []
       }

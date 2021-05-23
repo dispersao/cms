@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "locations",
   "info": {
     "name": "location",
@@ -8,15 +8,15 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "comment": ""
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
       "type": "string"
     },
     "sequences": {
-      "collection": "sequence",
-      "via": "location"
+      "via": "location",
+      "collection": "sequence"
     }
   }
 }
