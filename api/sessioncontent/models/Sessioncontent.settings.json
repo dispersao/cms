@@ -1,48 +1,45 @@
 {
-  "connection": "default",
-  "collectionName": "sessionpublications",
+  "kind": "collectionType",
+  "collectionName": "sessioncontents",
   "info": {
     "name": "sessioncontent",
     "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "state": {
+      "type": "enumeration",
       "enum": [
         "pending",
         "published"
-      ],
-      "type": "enumeration"
+      ]
     },
     "programmed_at": {
       "type": "integer"
     },
-    "script": {
-      "model": "script",
-      "via": "sessioncontents"
+    "comment": {
+      "via": "sessioncontents",
+      "model": "comment"
     },
     "likes": {
-      "collection": "like",
-      "via": "sessioncontent"
-    },
-    "comment": {
-      "model": "comment",
-      "via": "sessioncontents"
-    },
-    "profile": {
-      "model": "profile",
-      "via": "sessioncontents"
+      "via": "sessioncontent",
+      "collection": "like"
     },
     "post": {
-      "model": "post",
-      "via": "sessioncontents"
+      "via": "sessioncontents",
+      "model": "post"
+    },
+    "script": {
+      "via": "sessioncontents",
+      "model": "script"
+    },
+    "profile": {
+      "via": "sessioncontents",
+      "model": "profile"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "scripts",
   "info": {
     "name": "script",
@@ -7,11 +7,8 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
@@ -20,33 +17,31 @@
     "averagetime": {
       "type": "integer"
     },
-    "author": {
-      "model": "user",
-      "via": "scripts",
-      "plugin": "users-permissions"
-    },
     "token": {
-      "type": "string",
-      "unique": true
+      "type": "string"
     },
     "state": {
+      "type": "enumeration",
       "enum": [
         "idle",
         "started",
         "playing",
         "paused",
         "finished"
-      ],
-      "type": "enumeration",
-      "required": true
+      ]
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "scripts"
     },
     "sessioncontents": {
-      "collection": "sessioncontent",
-      "via": "script"
+      "via": "script",
+      "collection": "sessioncontent"
     },
     "scriptsequences": {
-      "collection": "scriptsequence",
-      "via": "script"
+      "via": "script",
+      "collection": "scriptsequence"
     }
   }
 }

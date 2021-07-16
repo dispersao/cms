@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "comments",
   "info": {
     "name": "comment",
@@ -7,27 +7,24 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "content": {
       "type": "richtext"
     },
     "contentcreator": {
-      "model": "contentcreator",
-      "via": "comments"
+      "via": "comments",
+      "model": "contentcreator"
     },
     "sessioncontents": {
-      "collection": "sessioncontent",
-      "via": "comment"
+      "via": "comment",
+      "collection": "sessioncontent"
     },
     "post": {
-      "model": "post",
-      "via": "comments"
+      "via": "comments",
+      "model": "post"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "scriptsequences",
   "info": {
     "name": "scriptsequence",
@@ -7,34 +7,31 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "index": {
       "type": "integer"
     },
-    "sequence": {
-      "model": "sequence",
-      "via": "scriptsequences"
-    },
     "state": {
+      "type": "enumeration",
       "enum": [
         "hasPlayed",
         "isPlaying",
         "willPlay"
-      ],
-      "type": "enumeration"
-    },
-    "script": {
-      "model": "script",
-      "via": "scriptsequences"
+      ]
     },
     "position": {
       "type": "integer"
+    },
+    "script": {
+      "via": "scriptsequences",
+      "model": "script"
+    },
+    "sequence": {
+      "via": "scriptsequences",
+      "model": "sequence"
     }
   }
 }

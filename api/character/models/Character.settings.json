@@ -1,26 +1,27 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "characters",
   "info": {
     "name": "character",
-    "description": "characters"
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "comment": ""
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
       "type": "string"
     },
     "categories": {
-      "collection": "category",
-      "via": "characters"
+      "via": "characters",
+      "collection": "category"
     },
     "parts": {
+      "via": "characters",
       "collection": "part",
-      "via": "characters"
+      "dominant": true
     }
   }
 }

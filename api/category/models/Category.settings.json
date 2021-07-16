@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "categories",
   "info": {
     "name": "category",
@@ -7,11 +7,8 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "text": {
@@ -21,17 +18,19 @@
       "type": "string"
     },
     "sequences": {
+      "via": "categories",
       "collection": "sequence",
-      "via": "categories"
+      "dominant": true
     },
     "characters": {
-      "collection": "character",
       "via": "categories",
+      "collection": "character",
       "dominant": true
     },
     "posts": {
+      "via": "categories",
       "collection": "post",
-      "via": "categories"
+      "dominant": true
     }
   }
 }

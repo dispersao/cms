@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/likes",
-      "handler": "Like.find",
+      "handler": "like.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/likes/count",
-      "handler": "Like.count",
+      "handler": "like.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/likes/:id",
-      "handler": "Like.findOne",
+      "handler": "like.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/likes",
-      "handler": "Like.create",
+      "handler": "like.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/likes/:id",
-      "handler": "Like.update",
+      "handler": "like.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/likes/:id",
-      "handler": "Like.delete",
+      "handler": "like.delete",
       "config": {
         "policies": []
       }

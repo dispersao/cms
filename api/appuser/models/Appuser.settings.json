@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "appusers",
   "info": {
     "name": "appuser",
@@ -7,26 +7,23 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "expotoken": {
       "type": "string"
     },
-    "script": {
-      "model": "script"
-    },
     "enabled": {
-      "default": true,
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "locale": {
       "type": "string",
       "default": "en"
+    },
+    "script": {
+      "model": "script"
     }
   }
 }
