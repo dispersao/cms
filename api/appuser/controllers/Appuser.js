@@ -1,15 +1,13 @@
 'use strict';
 
 /**
- * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
 module.exports = {
-
   async create(ctx) {
     let entity = await strapi.services.appuser.create(ctx.request.body)
-    console.log(entity)
     return strapi.services.appuser.formatAppuser(entity)
   },
 
@@ -24,7 +22,8 @@ module.exports = {
   },
 
   async findOne(ctx) {
-    let entity = await strapi.services.appuser.findOne(ctx.params);
+    const { id } = ctx.params
+    let entity = await strapi.services.appuser.findOne({ id });
     return (entity && strapi.services.appuser.formatAppuser(entity)) || entity
   },
 

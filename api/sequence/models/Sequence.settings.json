@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "sequences",
   "info": {
     "name": "sequence",
@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "comment": ""
+    "draftAndPublish": false
   },
   "attributes": {
     "sceneNumber": {
@@ -18,25 +18,24 @@
       "type": "integer"
     },
     "location": {
-      "model": "location",
-      "via": "sequences"
-    },
-    "type": {
-      "model": "type",
-      "via": "sequences"
-    },
-    "categories": {
-      "collection": "category",
-      "dominant": true,
-      "via": "sequences"
+      "via": "sequences",
+      "model": "location"
     },
     "parts": {
-      "collection": "part",
-      "via": "sequence"
+      "via": "sequence",
+      "collection": "part"
+    },
+    "categories": {
+      "via": "sequences",
+      "collection": "category"
     },
     "scriptsequences": {
-      "collection": "scriptsequence",
-      "via": "sequence"
+      "via": "sequence",
+      "collection": "scriptsequence"
+    },
+    "type": {
+      "via": "sequences",
+      "model": "type"
     }
   }
 }

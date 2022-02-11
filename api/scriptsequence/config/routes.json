@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/scriptsequences",
-      "handler": "Scriptsequence.find",
+      "handler": "scriptsequence.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/scriptsequences/count",
-      "handler": "Scriptsequence.count",
+      "handler": "scriptsequence.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/scriptsequences/:id",
-      "handler": "Scriptsequence.findOne",
+      "handler": "scriptsequence.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/scriptsequences",
-      "handler": "Scriptsequence.create",
+      "handler": "scriptsequence.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/scriptsequences/:id",
-      "handler": "Scriptsequence.update",
+      "handler": "scriptsequence.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/scriptsequences/:id",
-      "handler": "Scriptsequence.delete",
+      "handler": "scriptsequence.delete",
       "config": {
         "policies": []
       }

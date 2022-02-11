@@ -1,5 +1,5 @@
 {
-  "connection": "default",
+  "kind": "collectionType",
   "collectionName": "contentcreators",
   "info": {
     "name": "contentcreator",
@@ -7,31 +7,39 @@
   },
   "options": {
     "increments": true,
-    "timestamps": [
-      "created_at",
-      "updated_at"
-    ],
-    "comment": ""
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "name": {
       "type": "string"
     },
-    "character": {
-      "model": "character"
-    },
     "icon": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     },
     "comments": {
-      "collection": "comment",
-      "via": "contentcreator"
+      "via": "contentcreator",
+      "collection": "comment"
+    },
+    "character": {
+      "model": "character"
     },
     "posts": {
-      "collection": "post",
-      "via": "contentcreator"
+      "via": "contentcreator",
+      "collection": "post"
+    },
+    "profile": {
+      "via": "contentcreator",
+      "model": "profile"
     }
   }
 }

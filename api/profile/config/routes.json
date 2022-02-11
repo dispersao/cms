@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/profiles",
-      "handler": "Profile.find",
+      "handler": "profile.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/profiles/count",
-      "handler": "Profile.count",
+      "handler": "profile.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/profiles/:id",
-      "handler": "Profile.findOne",
+      "handler": "profile.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/profiles",
-      "handler": "Profile.create",
+      "handler": "profile.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/profiles/:id",
-      "handler": "Profile.update",
+      "handler": "profile.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/profiles/:id",
-      "handler": "Profile.delete",
+      "handler": "profile.delete",
       "config": {
         "policies": []
       }

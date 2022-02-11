@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/appusers",
-      "handler": "Appuser.find",
+      "handler": "appuser.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/appusers/count",
-      "handler": "Appuser.count",
+      "handler": "appuser.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/appusers/:id",
-      "handler": "Appuser.findOne",
+      "handler": "appuser.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/appusers",
-      "handler": "Appuser.create",
+      "handler": "appuser.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/appusers/:id",
-      "handler": "Appuser.update",
+      "handler": "appuser.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/appusers/:id",
-      "handler": "Appuser.delete",
+      "handler": "appuser.delete",
       "config": {
         "policies": []
       }

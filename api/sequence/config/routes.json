@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/sequences",
-      "handler": "Sequence.find",
+      "handler": "sequence.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/sequences/count",
-      "handler": "Sequence.count",
+      "handler": "sequence.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/sequences/:id",
-      "handler": "Sequence.findOne",
+      "handler": "sequence.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/sequences",
-      "handler": "Sequence.create",
+      "handler": "sequence.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/sequences/:id",
-      "handler": "Sequence.update",
+      "handler": "sequence.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/sequences/:id",
-      "handler": "Sequence.delete",
+      "handler": "sequence.delete",
       "config": {
         "policies": []
       }

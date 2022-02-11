@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/contentcreators",
-      "handler": "Contentcreator.find",
+      "handler": "contentcreator.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/contentcreators/count",
-      "handler": "Contentcreator.count",
+      "handler": "contentcreator.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/contentcreators/:id",
-      "handler": "Contentcreator.findOne",
+      "handler": "contentcreator.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/contentcreators",
-      "handler": "Contentcreator.create",
+      "handler": "contentcreator.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/contentcreators/:id",
-      "handler": "Contentcreator.update",
+      "handler": "contentcreator.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/contentcreators/:id",
-      "handler": "Contentcreator.delete",
+      "handler": "contentcreator.delete",
       "config": {
         "policies": []
       }

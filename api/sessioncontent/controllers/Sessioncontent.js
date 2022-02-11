@@ -6,7 +6,7 @@ const { getTranslationByLang } = require('../../../locales/')
 const { notifications } = require('../../../notifications/queues');
 
 /**
- * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
@@ -18,6 +18,7 @@ module.exports = {
       return strapi.services.sessioncontent.create(ctx.request.body)
     }
   },
+
   async find(ctx) {
     let entities;
     const fields =  [
@@ -110,7 +111,7 @@ const sendMessages = async (entity) => {
         data: { 
           sessioncontent: entity.id,
           type,
-          thumb: entity[type].contentcreator.icon.url,
+          thumb: entity[type].contentcreator.icon?.url,
           author: entity[type].contentcreator.name,
           published_at:entity.updated_at,
           refName
@@ -125,4 +126,4 @@ const sendMessages = async (entity) => {
     contentId: entity.id,
     messages,
   });
-}
+};

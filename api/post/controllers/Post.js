@@ -1,9 +1,8 @@
 'use strict';
 const { sanitizeEntity } = require('strapi-utils')
 
-
 /**
- * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
@@ -18,5 +17,5 @@ module.exports = {
     const model = strapi.models.post
 
     return entities.map(entity => sanitizeEntity(entity, { model }));
-  },
+  }
 };

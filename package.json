@@ -2,46 +2,44 @@
   "name": "cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Dispersao CMS",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
-  },
-  "devDependencies": {
-    "i18next-fs-backend": "^1.0.7"
+    "strapi": "strapi",
+    "installAndDevelop": "npm i && strapi build && strapi develop"
   },
   "dependencies": {
-    "bull": "^3.18.0",
-    "escape-string-regexp": "^4.0.0",
-    "expo-server-sdk": "^3.4.0",
-    "i18next": "^19.8.4",
+    "bull": "^3.22.6",
+    "escape-string-regexp": "^1.0.5",
+    "expo-server-sdk": "^3.6.0",
+    "i18next": "^20.2.4",
     "keygenerator": "^1.0.4",
-    "knex": "latest",
-    "lodash": "^4.17.15",
-    "mysql": "latest",
-    "redis": "^3.0.2",
-    "strapi": "3.0.0-beta.19.4",
-    "strapi-admin": "3.0.0-beta.19.4",
-    "strapi-connector-bookshelf": "3.0.0-beta.19.4",
-    "strapi-plugin-content-manager": "3.0.0-beta.19.4",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.19.4",
-    "strapi-plugin-email": "3.0.0-beta.19.4",
-    "strapi-plugin-graphql": "3.0.0-beta.19.4",
-    "strapi-plugin-upload": "3.0.0-beta.19.4",
-    "strapi-plugin-users-permissions": "3.0.0-beta.19.4",
-    "strapi-utils": "3.0.0-beta.19.4"
+    "knex": "0.21.18",
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+    "redis": "^3.1.2",
+    "sqlite3": "5.0.0",
+    "strapi": "3.6.2",
+    "strapi-admin": "3.6.2",
+    "strapi-connector-bookshelf": "3.6.2",
+    "strapi-plugin-content-manager": "3.6.2",
+    "strapi-plugin-content-type-builder": "3.6.2",
+    "strapi-plugin-email": "3.6.2",
+    "strapi-plugin-upload": "3.6.2",
+    "strapi-plugin-users-permissions": "3.6.2",
+    "strapi-utils": "3.6.2"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "89876290-bdb2-4a2d-9cf8-f04c55bcbf25"
+    "uuid": "4b813d22-a152-4997-a106-f77e9590be09"
   },
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
   },
   "license": "MIT"
 }

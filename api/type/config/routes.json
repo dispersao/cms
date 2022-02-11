@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/types",
-      "handler": "Type.find",
+      "handler": "type.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/types/count",
-      "handler": "Type.count",
+      "handler": "type.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/types/:id",
-      "handler": "Type.findOne",
+      "handler": "type.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/types",
-      "handler": "Type.create",
+      "handler": "type.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/types/:id",
-      "handler": "Type.update",
+      "handler": "type.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/types/:id",
-      "handler": "Type.delete",
+      "handler": "type.delete",
       "config": {
         "policies": []
       }

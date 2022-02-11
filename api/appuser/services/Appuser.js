@@ -2,7 +2,7 @@
 const { sanitizeEntity } = require('strapi-utils')
 
 /**
- * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/services.html#core-services)
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
  * to customize this service
  */
 

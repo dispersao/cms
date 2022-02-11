@@ -1,31 +1,24 @@
 'use strict';
-const { Expo } = require('expo-server-sdk')
 const { sanitizeEntity } = require('strapi-utils')
 const keygen = require("keygenerator")
-
-
 /**
- * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/guides/controllers.html#core-controllers)
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
 module.exports = {
-
   async create(ctx) {
     let entity
     const { id } = ctx.state.user
 
     const scriptObj = {
       ...ctx.request.body,
-      author: id,
-      // token
+      author: id
     };
   
     entity = await strapi.services.script.create(scriptObj)
   
-    // Send 201 `created`
-    console.log(ctx.created(entity))
-    
+    // Send 201 `created`    
     const model = strapi.models.script
     return sanitizeEntity(entity, { model });
   },
@@ -162,4 +155,4 @@ const publishProfiles = async (entity) => {
     }))
   )
   return profilesToCreate
-}
+};
