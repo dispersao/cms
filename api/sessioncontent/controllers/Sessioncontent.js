@@ -19,6 +19,24 @@ module.exports = {
     }
   },
 
+  async getLikes(ctx) {
+    let entity = await strapi.services.sessioncontent.findOne({id: ctx.params.id}, [
+      'likes'
+    ])
+    
+    const likes = entity.likes.reduce(( acc, cur ) => {
+      const key = cur.dislike ? 'dislikes' : 'likes'
+      acc[key]++
+      return acc
+    }, {likes: 0, dislikes: 0})
+
+
+    return {
+      id: entity.id,
+      ...likes
+    }
+  },
+
   async find(ctx) {
     let entities;
     const fields =  [
