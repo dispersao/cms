@@ -1,5 +1,6 @@
 'use strict'
 const { sanitizeEntity } = require('strapi-utils')
+const { cacheManager } = require('../../../backgroundJobs/queues');
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
@@ -9,7 +10,7 @@ const { sanitizeEntity } = require('strapi-utils')
 module.exports = {
   async create(ctx) {
     const entity = await strapi.services.like.create(ctx.request.body)
-    await deleteCache(entity.sessioncontent.id)
+    await deleteCache(entity)
     return entity
   },
   async update(ctx) {
@@ -17,25 +18,24 @@ module.exports = {
       ctx.params,
       ctx.request.body
     )
-    await deleteCache(entity.sessioncontent.id)
+    await deleteCache(entity)
 
     const model = strapi.models.sessioncontent
     return sanitizeEntity(entity, { model })
   },
   async delete(ctx) {
     const entity = await strapi.services.like.delete(ctx.params)
-    await deleteCache(entity.sessioncontent.id)
+    await deleteCache(entity)
     return entity
   }
 }
 
-const deleteCache = async sessioncontent => {
-  let keys = await strapi.middleware.cache.store.keys()
-  keys = Promise.all(
-    keys
-      .filter(
-        key => key.indexOf(`sessioncontents/${sessioncontent}/likes/count`) >= 0
-      )
-      .map(key => strapi.middleware.cache.store.del(key))
-  )
+const deleteCache = async ({sessioncontent: { id: sessioncontentid }, appuser: { id: appuserid}}) => {
+  cacheManager.add({
+    action: 'delete',
+    paths: [
+      `sessioncontents/${sessioncontentid}/likes/count`,
+      `appusers/${appuserid}/likes`
+    ]
+  })
 }

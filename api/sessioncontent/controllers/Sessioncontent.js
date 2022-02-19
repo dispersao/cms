@@ -3,7 +3,7 @@ const { sanitizeEntity } = require('strapi-utils')
 const { Expo } = require('expo-server-sdk')
 const { getTranslationByLang } = require('../../../locales/')
 
-const { notifications } = require('../../../notifications/queues');
+const { notifications } = require('../../../backgroundJobs/queues');
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
