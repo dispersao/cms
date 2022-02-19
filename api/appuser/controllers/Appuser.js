@@ -14,7 +14,7 @@ module.exports = {
   async find(ctx) {
     let entities;
     if (ctx.query._q) {
-      entities = await strapi.services.appuser.search(ctx.query);
+      entities = await strapi.services.appuser.search(ctx.query, ['script']);
     } else {
       entities = await strapi.services.appuser.find(ctx.query);
     }
@@ -23,8 +23,16 @@ module.exports = {
 
   async findOne(ctx) {
     const { id } = ctx.params
-    let entity = await strapi.services.appuser.findOne({ id });
+    let entity = await strapi.services.appuser.findOne({ id }, ['script']);
+    console.log(entity)
     return (entity && strapi.services.appuser.formatAppuser(entity)) || entity
+  },
+
+  async findLikes(ctx) {
+    const { id } = ctx.params
+    let entity = await strapi.services.appuser.findOne({ id }, ['likes']);
+
+    return (entity && entity.likes) || entity
   },
 
   async update(ctx) {

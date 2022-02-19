@@ -20,7 +20,8 @@
       "model": "sessioncontent"
     },
     "appuser": {
-      "model": "appuser"
+      "model": "appuser",
+      "via": "likes"
     }
   }
 }

@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/appusers/:id/likes",
+      "handler": "appuser.findLikes",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/appusers",
       "handler": "appuser.create",
