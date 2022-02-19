@@ -5,8 +5,6 @@ module.exports = ({ env }) => {
         enabled: true,
         type: 'redis',
         logs: 'true',
-        enableEtagSupport: true,
-        populateContext: true,
         withKoaContext: true,
         withStrapiMiddleware: true,
         redisConfig: {
@@ -15,11 +13,16 @@ module.exports = ({ env }) => {
           password: process.env.redis_password,
           db: 1
         },
-        models: [{
+       models: [{
           model: 'sessioncontent',
           routes: [
-            '/sessioncontents/',
-            '/sessioncontents/:id/likes/count'
+            { path: '/sessioncontents/', method: 'GET'},
+            { path: '/sessioncontents/:id/', method: 'GET'},
+            { path: '/sessioncontents/', method: 'POST'},
+            { path: '/sessioncontents/:id', method: 'PUT'},
+            { path: '/sessioncontents/:id', method: 'DELETE'},
+            { path: '/sessioncontents/:id/state', method: 'PUT'},
+            { path: '/sessioncontents/:id/likes/count', method: 'GET'},
           ]
         }, 'likes']
       }
