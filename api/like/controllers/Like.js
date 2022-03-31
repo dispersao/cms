@@ -20,11 +20,12 @@ module.exports = {
     )
     await deleteCache(entity)
 
-    const model = strapi.models.sessioncontent
+    const model = strapi.models.like
     return sanitizeEntity(entity, { model })
   },
   async delete(ctx) {
     const entity = await strapi.services.like.delete(ctx.params)
+    console.log('deleting element', entity, ctx.params)
     await deleteCache(entity)
     return entity
   }

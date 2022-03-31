@@ -34,7 +34,7 @@
     },
     {
       "method": "GET",
-      "path": "/scripts/:id/state",
+      "path": "/scripts/:token/state",
       "handler": "Script.getState",
       "config": {
         "policies": []

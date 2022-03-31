@@ -35,7 +35,7 @@
     {
       "method": "GET",
       "path": "/sessioncontents/:id/likes/count",
-      "handler": "sessioncontent.getLikes",
+      "handler": "sessioncontent.getLikesCount",
       "config": {
         "policies": []
       }

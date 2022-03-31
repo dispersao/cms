@@ -19,22 +19,21 @@ module.exports = {
     }
   },
 
-  async getLikes(ctx) {
-    let entity = await strapi.services.sessioncontent.findOne({id: ctx.params.id}, [
-      'likes'
-    ])
-    
-    const likes = entity.likes.reduce(( acc, cur ) => {
-      const key = cur.dislike ? 'dislikes' : 'likes'
-      acc[key]++
-      return acc
-    }, {likes: 0, dislikes: 0})
+  async getLikesCount(ctx) {
+    console.log('going through getlikes')
+    const { id } = ctx.params
 
+    const query = { sessioncontent: id, ...ctx.query }
 
-    return {
-      id: entity.id,
-      ...likes
+    let amount
+
+    if (ctx.query._q) {
+      amount = await strapi.services.like.countSearch(query)
+    } else {
+      amount = await strapi.services.like.count(query)
     }
+    return { total: amount }
+   
   },
 
   async find(ctx) {
@@ -51,8 +50,7 @@ module.exports = {
       'profile', 
       'profile.contentcreator',
       'profile.contentcreator.icon',
-      'profile.photo',
-      'likes'
+      'profile.photo'
     ]
 
     if (ctx.query._q) {

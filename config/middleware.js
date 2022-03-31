@@ -5,8 +5,9 @@ module.exports = ({ env }) => {
         enabled: true,
         type: 'redis',
         logs: 'true',
-        maxAge: 7200,
+        maxAge: 806400,
         withKoaContext: true,
+        enableEtagSupport: true,
         withStrapiMiddleware: true,
         redisConfig: {
           host: process.env.redis_host,
@@ -37,7 +38,20 @@ module.exports = ({ env }) => {
               { path: '/appusers/:id/likes', method: 'GET' }
             ]
           },
-          'likes'
+          'likes',
+          {
+            model: 'scripts',
+            routes: [
+              { path: '/scripts/', method: 'GET' },
+              { path: '/scripts/', method: 'POST' },
+              { path: '/scripts/count/enabled', method: 'GET' },
+              { path: '/scripts/:id', method: 'GET' },
+              { path: '/scripts/:id', method: 'PUT' },
+              { path: '/scripts/:id', method: 'DELETE' },
+              { path: '/scripts/:token/state', method: 'PUT' },
+              { path: '/scripts/:token/state', method: 'GET' }
+            ]
+          }
         ]
       }
     }
