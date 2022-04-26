@@ -1,5 +1,6 @@
-'use strict';
+'use strict'
 const { sanitizeEntity } = require('strapi-utils')
+const { cacheManager } = require('../../../backgroundJobs/queues')
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
@@ -7,18 +8,26 @@ const { sanitizeEntity } = require('strapi-utils')
  */
 
 module.exports = {
-  formatAppuser:  appuser => {
+  formatAppuser: appuser => {
     const user = sanitizeEntity(appuser, { model: strapi.models.appuser })
 
     let script = user && user.script
-    script = script ? { 
-      state: script.state,
-      token: script.token
-    } : script
+    script = script
+      ? {
+          state: script.state,
+          token: script.token
+        }
+      : script
 
     return {
       ...user,
       script
     }
+  },
+  clearCacheAppuserLikes: async ({ appuser }) => {
+    cacheManager.add({
+      action: 'delete',
+      paths: [`\\/appusers\\/${appuser}\\/likes`]
+    })
   }
-};
+}

@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/scripts/:token/sessioncontents",
+      "handler": "Script.findSessioncontents",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/scripts",
       "handler": "script.create",

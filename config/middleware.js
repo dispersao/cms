@@ -49,7 +49,8 @@ module.exports = ({ env }) => {
               { path: '/scripts/:id', method: 'PUT' },
               { path: '/scripts/:id', method: 'DELETE' },
               { path: '/scripts/:token/state', method: 'PUT' },
-              { path: '/scripts/:token/state', method: 'GET' }
+              { path: '/scripts/:token/state', method: 'GET' },
+              { path: '/scripts/:token/sessioncontents', method: 'GET' }
             ]
           }
         ]

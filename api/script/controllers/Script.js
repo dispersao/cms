@@ -27,33 +27,8 @@ module.exports = {
 
   async update(ctx) {
     let entity = await strapi.services.script.findOne(ctx.params)
-    // sendMessages(entity, ctx.request.body.state)
-
-    if (ctx.request.body.scriptsequences) {
-      const scrToDelete = entity.scriptsequences.filter(scrseq => {
-        return !ctx.request.body.scriptsequences.includes(scrseq.id)
-      })
-      await Promise.all(
-        scrToDelete.map(scrseq => {
-          return strapi.services.scriptsequence.delete({ id: scrseq.id })
-        })
-      )
-    }
-
-    if (ctx.request.body.sessioncontents) {
-      const sscoToDelete = entity.sessioncontents.filter(sescon => {
-        return !ctx.request.body.sessioncontents.includes(sescon.id)
-      })
-      await Promise.all(
-        sscoToDelete.map(sescon => {
-          return strapi.services.sessioncontent.delete({ id: sescon.id })
-        })
-      )
-    }
-
     entity = await strapi.services.script.update(ctx.params, ctx.request.body)
 
-    await deleteCache(entity)
     const model = strapi.models.script
     return sanitizeEntity(entity, { model })
   },
@@ -107,18 +82,6 @@ module.exports = {
     } else if (ctx.request.body.state === 'idle') {
       console.log('on state update', ctx.request.body.state)
       params.token = null
-
-      await Promise.all(
-        entity.scriptsequences.map(scrseq => {
-          return strapi.services.scriptsequence.delete({ id: scrseq.id })
-        })
-      )
-
-      await Promise.all(
-        entity.sessioncontents.map(sescon => {
-          return strapi.services.sessioncontent.delete({ id: sescon.id })
-        })
-      )
     }
 
     entity = await strapi.services.script.update(ctx.params, params)
@@ -128,10 +91,39 @@ module.exports = {
     }
     entity = await strapi.services.script.findOne(ctx.params)
 
-    await deleteCache(entity)
-
     const model = strapi.models.script
     return sanitizeEntity(entity, { model })
+  },
+
+  async findSessioncontents(ctx) {
+    let script = await strapi.services.script.findOne({
+      token: ctx.params.token
+    })
+    const query = {
+      script: script.id,
+      state: 'published'
+    }
+    if (ctx.query?.type) {
+      query[`${ctx.query.type}_null`] = false
+    }
+    console.log(query)
+    let entities = await strapi.services.sessioncontent.find(query, [
+      'post',
+      'post.contentcreator',
+      'post.contentcreator.icon',
+      'post.media',
+      'post.video',
+      'comment',
+      'comment.contentcreator',
+      'comment.contentcreator.icon',
+      'profile',
+      'profile.contentcreator',
+      'profile.contentcreator.icon',
+      'profile.photo'
+    ])
+
+    const model = strapi.models.sessioncontent
+    return entities.map(entity => sanitizeEntity(entity, { model }))
   }
 }
 
@@ -152,11 +144,4 @@ const publishProfiles = async entity => {
       )
   )
   return profilesToCreate
-}
-
-const deleteCache = async ({ token }) => {
-  cacheManager.add({
-    action: 'delete',
-    paths: [`scripts/${token}/state`]
-  })
 }
