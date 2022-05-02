@@ -85,10 +85,6 @@ module.exports = {
     }
 
     entity = await strapi.services.script.update(ctx.params, params)
-
-    if (token) {
-      await publishProfiles(entity)
-    }
     entity = await strapi.services.script.findOne(ctx.params)
 
     const model = strapi.models.script
@@ -125,23 +121,4 @@ module.exports = {
     const model = strapi.models.sessioncontent
     return entities.map(entity => sanitizeEntity(entity, { model }))
   }
-}
-
-const publishProfiles = async entity => {
-  const profileContents = entity.sessioncontents.filter(ses => ses.profile)
-  const profiles = await strapi.services.profile.find()
-
-  const profilesToCreate = await Promise.all(
-    profiles
-      .filter(prof => !profileContents.includes(prof))
-      .map(prof =>
-        strapi.services.sessioncontent.create({
-          script: entity.id,
-          state: 'published',
-          programmed_at: 0,
-          profile: prof.id
-        })
-      )
-  )
-  return profilesToCreate
 }

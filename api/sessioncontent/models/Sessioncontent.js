@@ -7,15 +7,23 @@
 
 module.exports = {
   lifecycles: {
+    async beforeDelete(data) {
+      const entities = await strapi.services.sessioncontent.find(data)
+      await Promise.all(
+        entities.map(
+          async entity =>
+            await strapi.query('like').delete({ sessioncontent: entity.id })
+        )
+      )
+    },
     async afterDelete(data) {
       const entities = Array.isArray(data) ? data : [data]
       await Promise.all(
         entities.map(async entity => {
-          await strapi.query('like').delete({ sessioncontent: id })
           await strapi.services.sessioncontent.clearCacheSessioncontentLikesCount(
             { id: entity.id }
           )
-          deleteScriptSessioncontentList(entity)
+          clearScriptSessioncontentList(entity)
         })
       )
     },
@@ -23,7 +31,7 @@ module.exports = {
       const entities = Array.isArray(data) ? data : [data]
       await Promise.all(
         entities.map(async entity => {
-          deleteScriptSessioncontentList(entity)
+          clearScriptSessioncontentList(entity)
         })
       )
     },
@@ -31,14 +39,14 @@ module.exports = {
       const entities = Array.isArray(data) ? data : [data]
       await Promise.all(
         entities.map(async entity => {
-          deleteScriptSessioncontentList(entity)
+          clearScriptSessioncontentList(entity)
         })
       )
     }
   }
 }
 
-const deleteScriptSessioncontentList = async entity => {
+const clearScriptSessioncontentList = async entity => {
   let type
   if (entity.post) {
     type = 'post'

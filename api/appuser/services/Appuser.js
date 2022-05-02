@@ -24,6 +24,12 @@ module.exports = {
       script
     }
   },
+  clearCacheAppuser: async ({ appuser }) => {
+    cacheManager.add({
+      action: 'delete',
+      paths: [`\\/appusers\\/${appuser}`]
+    })
+  },
   clearCacheAppuserLikes: async ({ appuser }) => {
     cacheManager.add({
       action: 'delete',
