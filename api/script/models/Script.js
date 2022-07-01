@@ -9,12 +9,12 @@ const { cacheManager } = require('../../../backgroundJobs/queues')
 module.exports = {
   lifecycles: {
     async beforeUpdate(params, data) {
+      const entity = await strapi.services.script.findOne(params)
+      await strapi.services.script.clearCacheScriptState(entity)
       await clearUsersCache(params)
       if (data.state === 'idle') {
-        const entity = await strapi.services.script.findOne(params)
         await deleteScriptSequences(params)
         await deleteSessionContents(params)
-        await strapi.services.script.clearCacheScriptState(entity)
         await strapi.services.script.clearCacheSessioncontentList(entity)
       } else if (data.state === 'started') {
         const entity = await strapi.services.script.findOne(params)
