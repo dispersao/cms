@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/sessioncontents/:id/likes/count",
+      "handler": "sessioncontent.getLikesCount",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/sessioncontents",
       "handler": "sessioncontent.create",

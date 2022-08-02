@@ -24,6 +24,10 @@
     },
     "script": {
       "model": "script"
+    },
+    "likes": {
+      "via": "appuser",
+      "collection": "like"
     }
   }
 }
