@@ -23,7 +23,6 @@ module.exports = {
   },
 
   async getLikesCount(ctx) {
-    console.log('going through getlikes')
     const { id } = ctx.params
 
     const query = { sessioncontent: id, ...ctx.query }
@@ -54,7 +53,6 @@ module.exports = {
       'profile.contentcreator.icon',
       'profile.photo'
     ]
-    console.log('list', ctx.query)
 
     if (ctx.query._q) {
       entities = await strapi.services.sessioncontent.search(ctx.query, fields)
@@ -104,7 +102,6 @@ module.exports = {
         qb.where('post', 'IS NOT NULL').orWhere('comment', 'IS NOT NULL')
       })
       .fetch()
-    console.log(a, ctx.query)
   }
 }
 

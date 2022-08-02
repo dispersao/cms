@@ -80,7 +80,6 @@ module.exports = {
     } else if (ctx.request.body.state === 'finished') {
       params.token = null
     } else if (ctx.request.body.state === 'idle') {
-      console.log('on state update', ctx.request.body.state)
       params.token = null
     }
 
@@ -102,7 +101,6 @@ module.exports = {
     if (ctx.query?.type) {
       query[`${ctx.query.type}_null`] = false
     }
-    console.log(query)
     let entities = await strapi.services.sessioncontent.find(query, [
       'post',
       'post.contentcreator',
