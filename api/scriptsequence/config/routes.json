@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/scriptsequences/",
+      "handler": "scriptsequence.bulkUpdate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/scriptsequences/:id",
       "handler": "scriptsequence.delete",
