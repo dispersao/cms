@@ -13,8 +13,8 @@ module.exports = {
       await strapi.services.script.clearCacheScriptState(entity)
       await clearUsersCache(params)
       if (data.state === 'idle') {
-        await deleteScriptSequences(params)
-        await deleteSessionContents(params)
+        // await deleteScriptSequences(params)
+        // await deleteSessionContents(params)
         await strapi.services.script.clearCacheSessioncontentList(entity)
       } else if (data.state === 'started') {
         const entity = await strapi.services.script.findOne(params)
