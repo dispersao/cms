@@ -8,6 +8,17 @@ const { cacheManager } = require('../../../backgroundJobs/queues')
  */
 
 module.exports = {
+  async find(ctx) {
+    let entities;
+    if (ctx.query._q) {
+      entities = await strapi.services.like.search(ctx.query, ['dislike']);
+    } else {
+      entities = await strapi.services.like.find(ctx.query, ['dislike']);
+    }
+    const model = strapi.models.like
+
+    return entities.map(entity => sanitizeEntity(entity, { model }));
+  },
   async create(ctx) {
     const entity = await strapi.services.like.create(ctx.request.body)
     return entity
