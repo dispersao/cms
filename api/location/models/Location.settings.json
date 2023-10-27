@@ -17,6 +17,14 @@
     "sequences": {
       "via": "location",
       "collection": "sequence"
+    },
+    "creditsPosition": {
+      "type": "enumeration",
+      "enum": [
+        "opening",
+        "closing"
+      ],
+      "required": false
     }
   }
 }

@@ -17,6 +17,11 @@
     },
     "name": {
       "type": "string"
+    },
+    "credits": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
